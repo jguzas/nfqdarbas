@@ -41,4 +41,5 @@ Route::group(["before" => "auth"], function()
         "uses" => "UsersController@createAlbumAction"
     ]);
 
+    Route::get('/','UsersController@showAlbumsAction');
 });

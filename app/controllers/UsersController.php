@@ -3,57 +3,61 @@ use Illuminate\Support\MessageBag;
 
 class UsersController extends BaseController {
 
-public function loginAction() {
+    public function loginAction() {
 
-    $errors = new MessageBag();
+        $errors = new MessageBag();
 
-    if ($old = Input::old("errors"))
-    {
-        $errors = $old;
-    }
-
-    $data = [
-        "errors" => $errors
-    ];
-
-    if (Input::server("REQUEST_METHOD") == "POST")
-    {
-        $validator = Validator::make(Input::all(), [
-            "username" => "required",
-            "password" => "required"
-        ]);
-
-        if ($validator->passes())
+        if ($old = Input::old("errors"))
         {
-            $credentials = [
-                "username" => Input::get("username"),
-                "password" => Input::get("password")
-            ];
-
-            if (Auth::attempt($credentials))
-            {
-                return Redirect::to("/");
-            }
+            $errors = $old;
         }
 
-        $data["errors"] = new MessageBag([
-            "password" => [
-                "Username and/or password invalid."
-            ]
-        ]);
+        $data = [
+            "errors" => $errors
+        ];
 
-        $data["username"] = Input::get("username");
+        if (Input::server("REQUEST_METHOD") == "POST")
+        {
+            $validator = Validator::make(Input::all(), [
+                "username" => "required",
+                "password" => "required"
+            ]);
 
-        return Redirect::route("users/login")
-            ->withInput($data);
+            if ($validator->passes())
+            {
+                $credentials = [
+                    "username" => Input::get("username"),
+                    "password" => Input::get("password")
+                ];
+
+                if (Auth::attempt($credentials))
+                {
+                    return Redirect::to("/");
+                }
+            }
+
+            $data["errors"] = new MessageBag([
+                "password" => [
+                    "Username and/or password invalid."
+                ]
+            ]);
+
+            $data["username"] = Input::get("username");
+
+            return Redirect::route("users/login")
+                ->withInput($data);
+        }
+
+        return View::make("users/login", $data);
     }
-
-    return View::make("users/login", $data);
-}
 
     public function logoutAction(){
         Auth::logout();
         return Redirect::to("/");
+    }
+
+    public function createAlbumAction(){
+
     }
 
 }

@@ -2,9 +2,10 @@
     <a href="{{ URL::route("users/logout") }}">
         Atsijungti
     </a>
-    <a href="{{ URL::route("users/create") }}">
+    <a href="/create">
         Sukurti albumą
     </a>
+
 @else
     <a href="{{ URL::route("users/login") }}">
         Prisijungti

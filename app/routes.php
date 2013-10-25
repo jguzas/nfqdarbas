@@ -30,4 +30,9 @@ Route::group(["before" => "auth"], function()
         "as"   => "users/logout",
         "uses" => "UsersController@logoutAction"
     ]);
+
+    Route::any("/create", [
+        "as"   => "users/create",
+        "uses" => "UsersController@createAction"
+    ]);
 });

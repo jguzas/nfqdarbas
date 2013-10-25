@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlbumsTable' => $baseDir . '/app/database/migrations/2013_10_25_111226_AlbumsTable.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
@@ -839,6 +840,7 @@ return array(
     'Patchwork\\TurkishUtf8' => $vendorDir . '/patchwork/utf8/class/Patchwork/TurkishUtf8.php',
     'Patchwork\\Utf8' => $vendorDir . '/patchwork/utf8/class/Patchwork/Utf8.php',
     'Patchwork\\Utf8\\Bootup' => $vendorDir . '/patchwork/utf8/class/Patchwork/Utf8/Bootup.php',
+    'PhotosTable' => $baseDir . '/app/database/migrations/2013_10_25_104602_PhotosTable.php',
     'Predis\\Autoloader' => $vendorDir . '/predis/predis/lib/Predis/Autoloader.php',
     'Predis\\BasicClientInterface' => $vendorDir . '/predis/predis/lib/Predis/BasicClientInterface.php',
     'Predis\\Client' => $vendorDir . '/predis/predis/lib/Predis/Client.php',
@@ -1557,8 +1559,10 @@ return array(
     'Symfony\\Component\\Translation\\TranslatorInterface' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/TranslatorInterface.php',
     'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/Writer/TranslationWriter.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
-    'User' => $baseDir . '/app/models/User.php',
     'UserTable' => $baseDir . '/app/database/migrations/2013_10_24_181109_UserTable.php',
+    'Users' => $baseDir . '/app/models/Users.php',
+    'UsersController' => $baseDir . '/app/controllers/UsersController.php',
+    'UsersSeeder' => $baseDir . '/app/database/seeds/UsersSeeder.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',
     'Whoops\\Exception\\FrameCollection' => $vendorDir . '/filp/whoops/src/Whoops/Exception/FrameCollection.php',
